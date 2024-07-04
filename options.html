@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Extension Options</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Extension Options</h1>
+		
+		<h2>Modifier Keys <span class="hint-icon" data-hint="Which modifier keys should be used in combination with other keys?">?</span></h2>
+		<div class="option">
+			<label><input type="checkbox" id="shift"> Shift</label>
+			<label><input type="checkbox" id="control"> Control</label>
+			<label><input type="checkbox" id="alt"> Alt</label>
+			<label><input type="checkbox" id="meta"> Meta</label>
+		</div>
+
+		<h2>Keybinds</h2>
+		<p>Separate keys with a plus sign (+). For example: Control+Shift+a</p>
+		<div class="option">
+			<label for="lastPressedKey">Last Pressed Key:</label>
+			<input type="text" id="lastPressedKey" readonly>
+		</div>
+		<div class="option">
+			<label for="seekForward">Seek Forward:</label>
+			<input type="text" id="seekForward">
+			<span class="hint-icon" data-hint="Which keys move the video forward?">?</span>
+		</div>
+		<div class="option">
+			<label for="seekBackward">Seek Backward:</label>
+			<input type="text" id="seekBackward">
+			<span class="hint-icon" data-hint="Which keys move the video backward?">?</span>
+		</div>
+		<div class="option">
+			<label for="speedUp">Speed Up:</label>
+			<input type="text" id="speedUp">
+			<span class="hint-icon" data-hint="Which keys increase playback speed?">?</span>
+		</div>
+		<div class="option">
+			<label for="speedDown">Speed Down:</label>
+			<input type="text" id="speedDown">
+			<span class="hint-icon" data-hint="Which keys decrease playback speed?">?</span>
+		</div>
+		<div class="option">
+			<label for="resetSpeed">Reset Speed:</label>
+			<input type="text" id="resetSpeed">
+			<span class="hint-icon" data-hint="Which keys reset the playback speed to normal?">?</span>
+		</div>
+
+		<h2>Toast Settings</h2>
+		<div class="option">
+			<label for="toastPadding">Toast Padding:</label>
+			<input type="text" id="toastPadding">
+			<span class="hint-icon" data-hint="How much padding should the toast notification have?">?</span>
+		</div>
+		<div class="option">
+			<label for="toastTextPadding">Toast Text Padding:</label>
+			<input type="text" id="toastTextPadding">
+			<span class="hint-icon" data-hint="How much padding should the text inside the toast have?">?</span>
+		</div>
+		<div class="option">
+			<label for="toastTextColor">Toast Text Color:</label>
+			<input type="color" id="toastTextColor">
+			<span class="hint-icon" data-hint="What color should the text in the toast be?">?</span>
+		</div>
+		<div class="option">
+			<label for="toastBackgroundColor">Toast Background Color:</label>
+			<input type="text" id="toastBackgroundColor">
+			<span class="hint-icon" data-hint="What color should the background of the toast be?">?</span>
+		</div>
+		<div class="option">
+			<label for="toastBorderRadius">Toast Border Radius:</label>
+			<input type="text" id="toastBorderRadius">
+			<span class="hint-icon" data-hint="How rounded should the corners of the toast be?">?</span>
+		</div>
+		<div class="option">
+			<label for="toastFontSize">Toast Font Size:</label>
+			<input type="text" id="toastFontSize">
+			<span class="hint-icon" data-hint="How large should the text in the toast be?">?</span>
+		</div>
+		<div class="option">
+			<label for="toastDuration">Toast Duration (ms):</label>
+			<input type="number" id="toastDuration">
+			<span class="hint-icon" data-hint="How long should the toast notification stay visible?">?</span>
+		</div>
+
+		<h2>Other Settings</h2>
+		<div class="option">
+			<label for="seekForwardStep">Seek Forward Step:</label>
+			<input type="number" id="seekForwardStep">
+			<span class="hint-icon" data-hint="How many seconds should the video move forward when seeking?">?</span>
+		</div>
+		<div class="option">
+			<label for="seekBackwardStep">Seek Backward Step:</label>
+			<input type="number" id="seekBackwardStep">
+			<span class="hint-icon" data-hint="How many seconds should the video move backward when seeking?">?</span>
+		</div>
+		<div class="option">
+			<label for="speedUpStep">Speed Up Step:</label>
+			<input type="number" id="speedUpStep" step="0.1">
+			<span class="hint-icon" data-hint="By how much should the playback speed increase each time?">?</span>
+		</div>
+		<div class="option">
+			<label for="speedDownStep">Speed Down Step:</label>
+			<input type="number" id="speedDownStep" step="0.1">
+			<span class="hint-icon" data-hint="By how much should the playback speed decrease each time?">?</span>
+		</div>
+		<div class="option">
+			<label for="doubleClickDelay">Double Click Delay (ms):</label>
+			<input type="number" id="doubleClickDelay">
+			<span class="hint-icon" data-hint="What's the maximum time between clicks for a double click?">?</span>
+		</div>
+		<div class="option">
+			<label for="blacklist">Blacklist:</label>
+			<textarea id="blacklist" rows="4"></textarea>
+			<span class="hint-icon" data-hint="On which websites should this extension not work? (One URL per line, use * for wildcard)">?</span>
+		</div>
+
+		<button id="save">Save Options</button>
+	</div>
+	<script src="options.js"></script>
+</body>
+</html>
