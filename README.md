@@ -1,4 +1,5 @@
 # Warp Extension
+![Warp Logo](icons/warp.png)
 
 This Firefox extension enhances video playback control on web pages, allowing users to customize various playback features and keyboard shortcuts.
 
