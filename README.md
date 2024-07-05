@@ -13,7 +13,7 @@ This Firefox extension enhances video playback control on web pages, allowing us
 - Website blacklist functionality
 
 ## Installation
-https://addons.mozilla.org/en-GB/firefox/addon/warp/ (pending review so may not be available)
+https://addons.mozilla.org/addon/warp/
 
 ## Usage
 
