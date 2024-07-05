@@ -4,7 +4,7 @@
 This Firefox extension enhances video playback control on web pages, allowing users to customize various playback features and keyboard shortcuts.
 
 ## Features
-
+- Should work for youtube ad injection, so ads can be skipped
 - Custom keybinds for video playback control
 - Seek forward and backward
 - Adjust playback speed
