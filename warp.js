@@ -22,7 +22,8 @@ const defaultOptions = {
 	SpeedUpStep: 0.1,
 	SpeedDownStep: 0.1,
 	DoubleClickDelay: 100,
-	blacklist: []
+	blacklist: [],
+	youtubeAdBypass: true
 };
 
 const keyState = new Map();
@@ -32,7 +33,7 @@ browser.storage.local.get("WarpOptions").then((result) => {
 		result = { WarpOptions: defaultOptions };
 	}
 	const config = result["WarpOptions"];
-
+console.log(config);
 	let shouldRun = true;
 	for (const regex of config["blacklist"]) {
 		if (new RegExp(regex).test(window.location.href)) {
@@ -105,6 +106,17 @@ browser.storage.local.get("WarpOptions").then((result) => {
 			if (wasPressed && !e.repeat && (seekForwardDown || seekBackwardDown)) {
 				const skipTime = (seekForwardDown) ? target.duration : 0;
 				const skipText = (seekForwardDown) ? "end" : "start";
+				if (seekForwardDown && config["youtubeAdBypass"]) {
+					const skipButton = document.querySelector(".ytp-preview-ad");
+					if (skipButton) {
+						while (target.currentTime < target.duration) {
+							target.currentTime += 1;
+						}
+						setTimeout(() => { document.querySelector(".ytp-ad-skip-button-modern.ytp-button")?.click(); }, 500);
+						showToast("Skipping ad using bypass");
+						return;
+					}
+				}
 				showToast("Skipping to " + skipText);
 				target.currentTime = skipTime
 				return;
@@ -121,6 +133,10 @@ browser.storage.local.get("WarpOptions").then((result) => {
 				target.currentTime -= config["SeekBackwardStep"];
 				showToast(`Time: ${target.currentTime.toFixed(0)}s`);
 			} else if (isKeyComboDown(config["SpeedUp"])) {
+				if (target.playbackRate >= 16) {
+					showToast("Max playback rate reached");
+					return;
+				}
 				target.playbackRate += config["SpeedUpStep"];
 				showToast(`Playback rate: ${target.playbackRate.toFixed(1)}x`);
 			} else if (isKeyComboDown(config["SpeedDown"])) {

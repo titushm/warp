@@ -22,7 +22,8 @@ const defaultOptions = {
 	SpeedUpStep: 0.1,
 	SpeedDownStep: 0.1,
 	DoubleClickDelay: 100,
-	blacklist: []
+	blacklist: [],
+	youtubeAdBypass: true
 };
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -70,6 +71,7 @@ function loadOptions() {
 		document.getElementById("speedDownStep").value = config.SpeedDownStep || 0.1;
 		document.getElementById("doubleClickDelay").value = config.DoubleClickDelay || 100;
 		document.getElementById("blacklist").value = config.blacklist?.join("\n") || "";
+		document.getElementById("bypass").checked = config.youtubeAdBypass || true;
 	});
 }
 
@@ -100,6 +102,7 @@ function saveOptions() {
 		SpeedUpStep: parseFloat(document.getElementById("speedUpStep").value) || 0.1,
 		SpeedDownStep: parseFloat(document.getElementById("speedDownStep").value) || 0.1,
 		DoubleClickDelay: parseInt(document.getElementById("doubleClickDelay").value) || 100,
+		youtubeAdBypass: document.getElementById("bypass").checked,
 		blacklist: formattedBlacklist
 	};
 	browser.storage.local.set({ WarpOptions: options }).then(() => {
