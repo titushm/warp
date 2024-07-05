@@ -14,11 +14,17 @@ This Firefox extension enhances video playback control on web pages, allowing us
 - 
 ## Controls
 Go forward 5s: Control + Alt + RightArrow
+
 Go back 5s: Control + Alt + LeftArrow
+
 Go to end: Control + Alt + double click RightArrow
+
 Go to start: Control + Alt + double click LeftArrow
+
 Speed up by 0.1x: Control + Alt + UpArrow
+
 Slow down by 0.1x: Control + Alt + DownArrow
+
 Reset speed to 1x: Control + Alt + UpArrow + DownArrow
 
 ## Installation
