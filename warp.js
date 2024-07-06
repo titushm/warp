@@ -109,9 +109,12 @@ console.log(config);
 				if (seekForwardDown && config["youtubeAdBypass"]) {
 					const skipButton = document.querySelector(".ytp-preview-ad");
 					if (skipButton) {
-						while (target.currentTime < target.duration) {
+						const interval = setInterval(() => {
 							target.currentTime += 1;
-						}
+							if (target.currentTime >= target.duration) {
+								clearInterval(interval);
+							}
+						}, 10);
 						setTimeout(() => { document.querySelector(".ytp-ad-skip-button-modern.ytp-button")?.click(); }, 500);
 						showToast("Skipping ad using bypass");
 						return;
