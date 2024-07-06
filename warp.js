@@ -108,8 +108,13 @@ console.log(config);
 				const skipText = (seekForwardDown) ? "end" : "start";
 				if (seekForwardDown && config["youtubeAdBypass"]) {
 					const skipButton = document.querySelector(".ytp-preview-ad");
+					const adSrc = target.src;
 					if (skipButton) {
 						const interval = setInterval(() => {
+							if (adSrc !== target.src) {
+								clearInterval(interval);
+								return;
+							}
 							target.currentTime += 1;
 							if (target.currentTime >= target.duration) {
 								clearInterval(interval);
